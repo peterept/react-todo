@@ -9,6 +9,7 @@ class Todo extends Component {
   render() {
     return (
       <div className="col-md-6 col-md-offset-3">
+        {/* These children now represents the routes inside of the /todos route */}
           {this.props.children}
       </div>
     )

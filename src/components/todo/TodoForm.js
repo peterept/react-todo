@@ -30,6 +30,8 @@ class TodoForm extends Component {
   componentDidMount() {
     /* Fetch item for update */
     let props = this.props;
+
+    // Fetch data if on Edit page
     if (props.params.todoId) {
       this.setState({isFetchingTodo: true});
       httpUtil.get(`todos/${props.params.todoId}`).then((response) => {
@@ -43,6 +45,7 @@ class TodoForm extends Component {
           isFetchingTodo: false
         });
       }).catch((err) => {
+        this.setState({isFetchingTodo: false});
         toastr.error(err.message)
       });
     }
@@ -58,6 +61,8 @@ class TodoForm extends Component {
     let props = this.props;
     let title = this.refs.title.value;
     let description = this.refs.description.value;
+
+    // Perform Create or Update operations according to the presence of id
     if (!props.params.todoId) {
       httpUtil.post('todos', {
         title: title,
@@ -68,6 +73,7 @@ class TodoForm extends Component {
         this.goToListing();
         toastr.success(`Added '${title}'`)
       }).catch((err) => {
+        this.setState({isSubmittingTodo: false});
         toastr.error(err.message)
       });
     } else {
@@ -80,6 +86,7 @@ class TodoForm extends Component {
         this.goToListing();
         toastr.success(`Updated '${title}'`);
       }).catch((err) => {
+        this.setState({isSubmittingTodo: false});
         toastr.error(err.message)
       });
     }
@@ -104,6 +111,7 @@ class TodoForm extends Component {
         <div className="page-header">
           <h1>{this.props.params.todoId ? 'Update' : 'Add'} Todo</h1>
         </div>
+        
         {/* Disable form when a request is being performed */}
         <fieldset disabled={this.state.isSubmittingTodo || this.state.isFetchingTodo}>
           <form onSubmit={this.submitForm}>
@@ -122,7 +130,7 @@ class TodoForm extends Component {
               <textarea ref="description"
                         name="description"
                         className="form-control"
-                        placeholder="Title"
+                        placeholder="description"
                         value={this.state.todo.description}
                         onChange={this.handleInputChange}/>
             </div>

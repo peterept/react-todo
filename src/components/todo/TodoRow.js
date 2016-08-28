@@ -37,7 +37,7 @@ class TodoRow extends Component {
             : props.todo.title
           }
         </Link>
-        < span onClick={this.deleteTodo} className="glyphicon glyphicon-remove pull-right cursor-pointer"></span>
+        <span onClick={this.deleteTodo} className="glyphicon glyphicon-remove pull-right cursor-pointer"></span>
       </li>
     )
   }
