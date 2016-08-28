@@ -4,9 +4,11 @@
  */
 
 require('../assets/css/style.css');
+require('../node_modules/toastr/build/toastr.css');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './components/App';
-ReactDOM.render(<App/>, document.querySelector('#app-container'));
+import routes from './routes';
+
+ReactDOM.render(routes, document.querySelector('#app-container'));

@@ -5,10 +5,19 @@
 
 import React, {Component} from 'react';
 
+// Components
+import Header from './common/header/Header';
+import Dashboard from './dashboard/Dashboard';
+
 class App extends Component {
   render() {
     return (
-      <h1>Hello World!</h1>
+      <div>
+        <Header/>
+        <div className="container">
+          {this.props.children}
+        </div>
+      </div>
     )
   }
 }

@@ -31,7 +31,7 @@ module.exports = {
     hot: true,
     historyApiFallback: true,
     inline: true,
-    port: 8080
+    port: 1234
   },
   plugins: [
     new ExtractTextPlugin('bundle.css')
