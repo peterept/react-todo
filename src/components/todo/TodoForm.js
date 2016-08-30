@@ -28,7 +28,6 @@ class TodoForm extends Component {
   }
 
   componentDidMount() {
-    /* Fetch item for update */
     let props = this.props;
 
     // Fetch data if on Edit page
