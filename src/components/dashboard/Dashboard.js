@@ -26,7 +26,7 @@ class Dashboard extends Component {
         </p>
         <div className="clearfix"></div>
         <p>
-          <a href="/todos" className="btn btn-default btn-lg" role="button">
+          <a href="https://github.com/pratishshr/react-todo" className="btn btn-default btn-lg" role="button">
             <i className="fa fa-github" aria-hidden="true"></i>
             <span>{' '}GitHub</span>
           </a>
